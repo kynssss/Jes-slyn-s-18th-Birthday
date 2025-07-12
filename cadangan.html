@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Pictures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            perspective: 1500px;
+        }
+        
+        .book {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+        
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #138b7f;
+            border-radius: 5px 15px 15px 5px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            backface-visibility: hidden;
+            transform-origin: left;
+            transition: transform 1s;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        .pages {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            perspective: 1500px;
+        }
+        
+        .page {
+            position: relative;
+            width: 50%;
+            height: 100%;
+            background: white;
+            padding: 30px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-left {
+            border-radius: 5px 0 0 5px;
+            transform-origin: right;
+            transition: transform 1s;
+            z-index: 1;
+        }
+        
+        .page-right {
+            border-radius: 0 5px 5px 0;
+            transform-origin: left;
+            transition: transform 1s;
+            z-index: 1;
+        }
+        
+        .page-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .page-text {
+            flex: 1;
+            padding: 10px;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+        
+        .nav-btn {
+            padding: 8px 15px;
+            background: #a3ff23;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #a02d2d;
+        }
+        
+        #page1 .page-left .page-image {
+            flex: 1;
+        }
+        
+        #page1 .page-right .page-text {
+            flex: 1;
+        }
+        
+        .book.opened .book-cover {
+            transform: rotateY(-160deg);
+        }
+        
+        .page-left.flipped {
+            transform: rotateY(-180deg);
+        }
+        
+        .page-right.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="book" id="book">
+        <div class="book-cover">Random</div>
+        <div class="pages">
+            <div class="page page-left" id="page1-left">
+                <div class="page-content">
+                    <div class="page-image">
+                        <img src="WhatsApp Image 2025-07-12 at 22.01.53.jpeg" alt="Foto Halaman 1">
+                    </div>
+                </div>
+            </div>
+            <div class="page page-right" id="page1-right">
+                <div class="page-content">
+                    <div class="page-text">
+                        <h2>Pertama</h2>
+                        <p>Mulai dengan yang normal dulu ya, wahh waktu itu qt inga nga ragu sih bafoto deng kita, cuma untungnya akhirnya mau juga klo nda, tnd ada ngape foto pas di citraland sih. btw siap" ee krna foto berikutnya masterpiece</p>
+                        <p>Location : Citraland ; March 8, 2025</p>
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-btn prev-btn hidden">Kembali</button>
+                        <button class="nav-btn next-btn" onclick="flipPage(1)">Berikutnya</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page page-left hidden" id="page2-left">
+                <div class="page-content">
+                    <div class="page-text">
+                        <h2>Kedua</h2>
+                        <p>tatebak pasti nga kaget kiapa ta ada ni foto, soalnya ta le kaget pas lia ada, tutor strong dong...</p>
+                        <p>location : Sun Plaza ; March 4, 2025</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page page-right hidden" id="page2-right">
+                <div class="page-content">
+                    <div class="page-image">
+                        <img src="WhatsApp Image 2025-07-12 at 22.02.06.jpeg" alt="Gambar Halaman 2">
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-btn prev-btn" onclick="flipPageBack(2)">Kembali</button>
+                        <button class="nav-btn next-btn" onclick="flipPage(2)">Berikutnya</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page page-left hidden" id="page3-left">
+                <div class="page-content">
+                    <div class="page-text">
+                        <h2>Ketiga</h2>
+                        <p>wahh bisa bisanya kemarin qt lupa semaso ni foto legend, awal" penasaran yaa, mar akhir akhir behhh, muka pucat, jalan lemes krna pusing, ditambah lagi waktu itu pe panas skali, paket komplit sihh..</p>
+                        <p>location : Mickey Holiday ; March 1, 2025</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page page-right hidden" id="page3-right">
+                <div class="page-content">
+                    <div class="page-image">
+                        <img src="WhatsApp Image 2025-07-12 at 22.01.53(1).jpeg" alt="Gambar Halaman 3">
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-btn prev-btn" onclick="flipPageBack(3)">Kembali</button>
+                        <button class="nav-btn next-btn" onclick="flipPage(3)">Berikutnya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 3;
+        const book = document.getElementById('book');
+        
+        window.onload = function() {
+            setTimeout(() => {
+                book.classList.add('opened');
+            }, 500);
+        };
+        
+        function flipPage(pageNumber) {
+            if (pageNumber >= totalPages) return;
+            
+            const currentLeft = document.getElementById(`page${pageNumber}-left`);
+            const currentRight = document.getElementById(`page${pageNumber}-right`);
+            const nextLeft = document.getElementById(`page${pageNumber+1}-left`);
+            const nextRight = document.getElementById(`page${pageNumber+1}-right`);
+            
+            currentRight.querySelector('.next-btn').classList.add('hidden');
+            
+            currentLeft.classList.add('flipped');
+            currentRight.classList.add('flipped');
+            
+            setTimeout(() => {
+                currentLeft.classList.add('hidden');
+                currentRight.classList.add('hidden');
+                nextLeft.classList.remove('hidden');
+                nextRight.classList.remove('hidden');
+                
+                if (pageNumber+1 === totalPages) {
+                    nextRight.querySelector('.next-btn').classList.add('hidden');
+                }
+                nextRight.querySelector('.prev-btn').classList.remove('hidden');
+                
+                currentPage = pageNumber + 1;
+            }, 1000);
+        }
+        
+        function flipPageBack(pageNumber) {
+            if (pageNumber <= 1) return;
+            
+            const currentLeft = document.getElementById(`page${pageNumber}-left`);
+            const currentRight = document.getElementById(`page${pageNumber}-right`);
+            const prevLeft = document.getElementById(`page${pageNumber-1}-left`);
+            const prevRight = document.getElementById(`page${pageNumber-1}-right`);
+            
+            currentRight.querySelector('.prev-btn').classList.add('hidden');
+            
+            prevLeft.classList.remove('hidden');
+            prevRight.classList.remove('hidden');
+            
+            prevLeft.classList.remove('flipped');
+            prevRight.classList.remove('flipped');
+            
+            setTimeout(() => {
+                currentLeft.classList.remove('flipped');
+                currentRight.classList.remove('flipped');
+                
+                currentLeft.classList.add('hidden');
+                currentRight.classList.add('hidden');
+                
+                if (pageNumber-1 === 1) {
+                    prevRight.querySelector('.prev-btn').classList.add('hidden');
+                }
+                prevRight.querySelector('.next-btn').classList.remove('hidden');
+                
+                currentPage = pageNumber - 1;
+            }, 10);
+        }
+    </script>
+</body>
+</html>

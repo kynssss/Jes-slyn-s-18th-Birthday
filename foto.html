@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #0a0a0a;
+      color: #e0dede;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .container {
+      opacity: 0;
+      transition: opacity 2s ease;
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+      background-color: rgba(30, 30, 30, 0.9);
+      padding: 40px;
+      margin: 60px 20px 100px 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 1em;
+      color: #ffadfa;
+    }
+
+    .emoji {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .letter {
+      font-size: 1.1em;
+      line-height: 1.7;
+      text-align: justify;
+      white-space: pre-line;
+    }
+
+    .letter::first-line {
+      font-weight: bold;
+      color: #f7c3f3;
+    }
+
+    .footer {
+      margin-top: 2em;
+      font-size: 0.9em;
+      text-align: right;
+      color: #999;
+    }
+
+    .message {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffadfa;
+      font-size: 1.8em;
+      opacity: 0;
+      z-index: 10;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: transparent;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: twinkle 5s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+      border-radius: 50%;
+      transform: rotate(45deg);
+      animation: shoot 3s ease-out forwards;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-500px, 500px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="message" id="message1" style="display: none;">ehh bintang jatuh?? ayo cepat make a wish</div>
+  <div class="message" id="message2" style="display: none;">ni wa munculin lagi bintangnya, ready??</div>
+
+  <div class="container" id="container">
+    <div class="emoji"></div>
+    <h1>To Jes'slyn [Alvina] Nyoman/Yang</h1>
+    <div class="letter">
+Pertama tama Happy Birthday Jess, semoga di umur yang ke 18 ini semakin percaya diri, makin rajin juga dalam studinya nanti, semoga apa yang disemogakan dapat tersenogakan..ketik apasih...maksudnya semoga apa yang diimpikan bisa jadi kenyataan, and wishing you the best in this new year. Lanjut tamo bilang makase for momen di tanggal 1 September 2024, makase nga so berencana niat skali for beking momen yang nda terlupakan di tpe hidop, makase so bli akang kue juga, enak dpe kue ee ta da makang. Makase juga so mau se smangat pa kita waktu lomba esport kelas 10, jujur nn cewe pertama di SMA yang baik pqt, kita inga skali waktu itu qt kalah di semi final kong lagi menunggu for bronze match, disana jelas qt ekspek bole dapa juara 1, mar tiba' kalah turunin mental banget sih, tapi wa ingat nn se semangat pa kita pas ditangga jujur kita nda ekspek dapa boost dari orang yang baru komunikasi deng kita kemarin, ngape support sih sangat berpengaruh di tpe kemenangan pas bronze match, krna pas bronze match kalau nga mo tau, kita deng tpe tim bantai" kong akhirnya juara 3. terus makase juga so mau qtime bareng yang lain juga walaupun torang pe waktu so mepet skali. intinya makase banyak banyak for ngape waktu slama ini, makase juga kadang kase pinjam ngape laporan kimia pas di lab kimia intinya i'm so grateful for everything you've ever done for me. <br>
+Sorry, Sorry kalau kita kelas waktu kelas 11 dapa lia rupa menjauh, jujur kita rasa ta nda menjauh mar disatu sisi qt tako klo nga risih torang dapa cengin, apalagi torang lab kimia sama lab fisika duduk bareng, jujur kita orangnya nda jago komunikasi jasi kita tako kalo torang nanti asing cuma karna diceng cengin (walaupun akhirnya asing juga ya). Sorry karna nga pernah di blame krna nga bawa tape oto. Sorry juga kalo kita susah skali mangarti pas nga jelasin kalo nga dekat deng ngape teman pe crush rasanya gimana. Sorry karna waktu itu kita se tinggal nga sandiri diluar rumah, tnd ada pembelaan lagi for tpe kesalahan itu. Sorry juga krna kita sering salah perhitungan jam, jadinya nga slalu pulang malam, jadinya nga sandiri yang dapa marah nga pe mama, mar ngape mama marah karna ngape mama sayang kok jangan berpikiran aneh aneh ya. Sorry juga untuk hal yang kita nda sadar kita beking salah mar ada (kase tau pakita ee kalo ada supaya bole diperbaiki) <br>
+lanjut, Harapan for ngana, semoga dikuliah nanti ngana bisa bergaul ya deng orang orang disana, bisa cari teman baru, teman yang baik (jangan yang toxic), semoga juga studi disana lancar, nga bole lulus kuliah dengan aman (krna dari yang kita dengar disana ketat skali belajarnya) jadi semangat ya belajarnya disana. semoga di masa depan torang bole bakudapa ulang yaa, semoga kalau memang torang bakudapa ulang, torang bakudapa sebagai orang yang sukses.. <br>
+kalau nga ada dengar kita bilang nn pilih kasih, itu jujur kita cuma bercanda aja, nn nda usah pikirin itu yaa.. jujur sihh nn orang yang paling banyak tau tentang tape kehidupan ya, dan tarasa memang nn orang yang paling bisa dipercaya untuk jaga rahasia orang, walaupun kadang nn keliatan gatau cara buat respon mar tayakin nga mangarti dpe situasi... <br>
+Sorry ya kalo suratnya nda sepanjang yang nga ekspektasikan, jujur kita nda pernah long teks ke orang lain kecuali nn, sorry juga ya kalo dpe bahasa Manado cuma sadiki, karna jujur tso nda loding no klo bicara bahasa Manado <br>
+Last banget, I truly hope our psths cross again someday, and see you when i see you.
+    </div>
+    <div class="footer">— Joaquin</div>
+  </div>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+    const container = document.getElementById('container');
+    const msg1 = document.getElementById('message1');
+    const msg2 = document.getElementById('message2');
+
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      starsContainer.appendChild(star);
+    }
+
+    function createInitialShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.classList.add('shooting-star');
+      shootingStar.style.left = `${window.innerWidth * 0.8}px`;
+      shootingStar.style.top = `0px`;
+      document.body.appendChild(shootingStar);
+      setTimeout(() => shootingStar.remove(), 3000);
+    }
+
+    function startFallingStars() {
+      setInterval(() => {
+        const star = document.createElement('div');
+        star.classList.add('shooting-star');
+        const x = window.innerWidth * (0.6 + Math.random() * 0.4);
+        const y = Math.random() * 50;
+        star.style.left = `${x}px`;
+        star.style.top = `${y}px`;
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 3000);
+      }, 700);
+    }
+
+    window.onload = () => {
+  createInitialShootingStar();
+
+  setTimeout(() => {
+    msg1.style.display = 'block';
+  }, 3200);
+
+  setTimeout(() => {
+    msg1.style.display = 'none';
+    msg2.style.display = 'block';
+  }, 7000);
+
+  setTimeout(() => {
+    msg2.style.display = 'none';
+    startFallingStars(); 
+
+    setTimeout(() => {
+      container.style.opacity = 1;
+    }, 5000);
+  }, 11500);
+};
+
+  </script>
+</body>
+</html>
+

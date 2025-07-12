@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline Thalia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
+      color: #eee;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 40px 20px 20px;
+      color: #ffd6ff;
+      z-index: 10;
+      position: relative;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px 100px;
+      z-index: 10;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffffff22, #ffffff05);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 60px 0;
+      z-index: 10;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      background-color: #ffadfa;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ffadfa88;
+    }
+
+    .timeline-content {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 10px 16px;
+      border-radius: 8px;
+      max-width: 280px;
+      backdrop-filter: blur(5px);
+      border: 1px solid #ffffff11;
+    }
+
+    .timeline-item.left .timeline-content {
+      margin-right: auto;
+      margin-left: 60px;
+      text-align: left;
+    }
+
+    .timeline-item.right .timeline-content {
+      margin-left: auto;
+      margin-right: 60px;
+      text-align: right;
+    }
+
+    .timeline-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 8px;
+      border: 1px solid #ffffff22;
+    }
+
+    @media (max-width: 600px) {
+      .timeline-item.left .timeline-content,
+      .timeline-item.right .timeline-content {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+    /* Bintang styles */
+    .star {
+      position: fixed;
+      background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: twinkle 3s infinite ease-in-out alternate;
+      z-index: 5;
+    }
+
+    @keyframes twinkle {
+      0% {opacity: 0.3;}
+      50% {opacity: 1;}
+      100% {opacity: 0.3;}
+    }
+  </style>
+</head>
+<body>
+  <h2>Kenangan bareng Thalia</h2>
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-item left">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p>28 Mei 2025 - Hoki skali Thalia gudmud</p><br>
+        <p>qt inga waktu itu hujan badai, mar nn masi semangat skali mo turun for bakudapa deng thalia, pas maso Ziven pe rumah, dpe mama so tunggu sambil gendong Thalia. nga langsung pi cuci tangan kong tiba tiba pas nga gendong Thalia, dia anteng, nn pe muka pe sanang pas gendong Thalia, jadi kita inisiatif kase hp for foto.</p>
+        <img src="WhatsApp Image 2025-07-11 at 17.18.25.jpeg" alt="Momen 1" class="timeline-img">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p>2 June 2025 </p><br>
+        <p>yaaa dpe muka pe kecewa komang, disisi lain dpa lia katu nga pe effort supaya Thalia mau nga gendong mar Thalia cuma buang muka kong manangis, dpe mama le berusaha skali supaya Thalia mau mar memang waktu itu dia lagi bedmud. dihari itu juga torang dpa kase amer walaupun gaada alkohol, mar tnd suka noh, heran kiapa ngoni bisa suka....dan hari itu tnd ada foto ya.</p>
+        
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p>8 June 2025 - (sorry kita agak konfirmasi ulang kemarin krna takut salah)</p><br>
+        <p>oke hari ketiga agak tricky ya, awal awal Thalia dapa lia nimau, mar disatu sisi ini kali terakhir torang pigi di rumah ziven. disini awal awal Thalia menolak, wahh ngape muka kecewa skali sihh rupa orang so nda da arah hidop, mar Puji Tuhan akhirnya Thalia mau nga gendong, kali ini dia lebe anteng dari hari pertama nga gendong. kita da coba gendong katu, mar sayangnya tnintau cara bagendong bayi kasiang jadi agak aneh gendongannya. day terakhir juga torang ada pigi Binje Super Mall walaupun nda ngapa"in, kong terakhir torang lia red hulk wkwkwkw<p>
+        <img src="WhatsApp Image 2025-07-11 at 17.18.26(1).jpeg" alt="Momen 3" class="timeline-img">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    const starCount = 60;
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 2 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
